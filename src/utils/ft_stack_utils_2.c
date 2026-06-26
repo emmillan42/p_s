@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_stack_utils_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/20 18:04:59 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/25 17:41:08 by durisosa         ###   ########.fr       */
+/*   Created: 2026/01/29 19:21:41 by durisosa          #+#    #+#             */
+/*   Updated: 2026/06/25 17:44:28 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*ft_sort_b(t_stack **a)
+void	ft_free_stack(t_stack **stack)
 {
-	t_stack	*b;
+	t_stack	*tmp;
 
-	b = NULL;
-	while (ft_stacksize(*a) > 3 && !ft_stacksorted(*a))
-		ft_pb(a, &b, 1);
-	return (b);
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
+	{
+		tmp = *stack;
+		free(*stack);
+		*stack = (tmp)->next;
+	}
+	free(stack);
 }
 
-static int	ft_sort_big(t_stack **a)
+t_stack	*ft_parse_stack(int *numbers, int numbers_size)
 {
-	t_stack	*b;
+	t_stack	*stack;
+	int		i;
 
-	b = ft_stacknew((*a)->value);
-	if (!b)
-		return (ft_free_stack(a), ft_exit_error(1), 0);
-	return (1);
-}
-
-void	ft_sort_simple(t_stack **a, t_stack **b)
-{
-	
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	i = -1;
+	while (++i < numbers_size)
+		ft_stackadd_back(&stack, ft_stacknew(numbers[i]));
 }

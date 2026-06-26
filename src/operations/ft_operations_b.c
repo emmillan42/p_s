@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 19:03:06 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/23 12:52:51 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:26:02 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	ft_rb(t_stack **b, int print)
 		write(1, "rb\n", 3);
 }
 
-
-void	ft_pb(t_stack **a, t_stack **b, int print)
+void	ft_pb(t_stack **a, t_stack **b, t_pushswap *pushswap)
 {
 	t_stack	*tmp;
 

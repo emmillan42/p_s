@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_bench_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/20 18:04:59 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/25 17:41:08 by durisosa         ###   ########.fr       */
+/*   Created: 2026/06/25 17:09:17 by durisosa          #+#    #+#             */
+/*   Updated: 2026/06/25 17:09:31 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*ft_sort_b(t_stack **a)
+void	ft_print_bench(t_pushswap *pushswap)
 {
-	t_stack	*b;
-
-	b = NULL;
-	while (ft_stacksize(*a) > 3 && !ft_stacksorted(*a))
-		ft_pb(a, &b, 1);
-	return (b);
-}
-
-static int	ft_sort_big(t_stack **a)
-{
-	t_stack	*b;
-
-	b = ft_stacknew((*a)->value);
-	if (!b)
-		return (ft_free_stack(a), ft_exit_error(1), 0);
-	return (1);
-}
-
-void	ft_sort_simple(t_stack **a, t_stack **b)
-{
-	
+	return ;
 }

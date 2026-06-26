@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:28:22 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/23 12:52:19 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:44:12 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,18 @@ void	ft_pb(t_stack **a, t_stack **b, int print);
 void	ft_sb(t_stack **b, int print);
 void	ft_sa(t_stack **stack, int print);
 void	ft_ra(t_stack **a, int print);
+
+void	ft_rotate(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	tmp = *stack;
+	*stack = ft_stacklast(*stack);
+	(*stack)->next = tmp;
+	*stack = tmp->next;
+	tmp->next = NULL;
+}
 
 #endif

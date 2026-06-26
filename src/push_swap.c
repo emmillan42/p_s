@@ -6,57 +6,62 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:40:49 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/24 17:38:39 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:25:25 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	ft_sort_simple(t_stack **a, t_stack **b, t_pushswap *pushswap)
+{
+	if (ft_stacksize(*a) > 3 && !ft_issorted(*a))
+		ft_pb(a, b, pushswap);
+	if (ft_stacksize(*a) > 3 && !ft_issorted(*a))
+		ft_pb(a, b, pushswap);
+	if (ft_stacksize(*a) > 3 && !ft_issorted(*a))
+		ft_pb(a, b, pushswap);
+}
+
+static void	ft_sort_complex(t_stack **a, t_stack **b, t_pushswap *pushswap)
+{
+}
+
+static void	ft_select_sort(t_stack **a, t_stack **b, t_pushswap *pushswap)
+{
+	float	disorder;
+
+	if (pushswap->numbers_size == 2)
+	{
+		a = ft_parse_stack(pushswap->numbers, pushswap->numbers_size);
+		return (ft_sa(a));
+	}
+	else
+	{
+		b = malloc(sizeof(t_stack*));
+		if (!b)
+			return (NULL);
+		ft_quicksort(a, b, pushswap);
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack		*a;
+	t_stack		*b;
 	t_pushswap	*pushswap;
 
 	if (argc < 2)
 		return (1);
-	pushswap = ft_build_pushswap(argc, argv);
+	pushswap = ft_parse_pushswap(argc, argv);
 	if (!pushswap)
 		return (1);
-	a = NULL;
-	b = NULL;
-	a = ft_parse_stack(pushswap->numbers);
+	a = ft_parse_stack(pushswap->numbers, pushswap->numbers_size);
+	if (!a)
+		return (free(pushswap), NULL);
 	if (!ft_issorted(a))
-		ft_sort(&a, &b, pushswap);
+		ft_select_sort(&a, &b, pushswap);
+	if (pushswap->bench)
+		ft_print_bench(pushswap);
 	return (ft_free_stack(&a), ft_free_stack(&b), free(pushswap), 0);
 	return (0);
 }
-
-//OPERATIONS
-
-
-void	ft_rotate(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	tmp = *stack;
-	*stack = ft_stacklast(*stack);
-	(*stack)->next = tmp;
-	*stack = tmp->next;
-	tmp->next = NULL;
-}
-
-t_stack	*ft_stacklast(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);	
-	while (stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
-
-
-
-

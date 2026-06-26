@@ -6,13 +6,27 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:29:35 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/24 17:32:45 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:04:27 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
 
-t_pushswap	*ft_build_pushswap(int argc, char **argv)
+static void	ft_free_split(char **split)
+{
+	char	*tmp;
+
+	if (!split)
+		return ;
+	while (*split)
+	{
+		tmp = *split;
+		split++;
+		free(tmp);
+	}
+}
+
+t_pushswap	*ft_parse_pushswap(int argc, char **argv)
 {
 	t_pushswap	*pushswap;
 	int			i;
@@ -28,6 +42,7 @@ t_pushswap	*ft_build_pushswap(int argc, char **argv)
 	pushswap->splitted = ft_split(pushswap->joined_args, ' ');
 	pushswap = ft_split_numbers(pushswap->splitted, &pushswap);
 	pushswap = ft_find_selector(pushswap->splitted, &pushswap);
+	pushswap->bench = ft_find_bench(argc, argv);
 	if (!pushswap->valid)
 		return (free(pushswap), NULL);
 	return (pushswap);
@@ -96,23 +111,4 @@ static t_pushswap	*ft_pushswap_init(void)
 	return (init);
 }
 
-char	*ft_strjoin_sep(char *prev, char *new)
-{
-	char	*joined;
-	size_t	prev_len;
-	size_t	new_len;
-	
-	if (!new)
-		return (prev);
-	if (!prev)
-		prev_len = 0;
-	else
-		prev_len = ft_strlen(prev);
-	joined = malloc((prev_len + new_len + 2) * sizeof(char));
-	if (!joined) //if not joined, I should free the prev?
-		return (free(prev), NULL);
-	joined[prev_len] = ' ';
-	ft_strlcpy(joined, prev, prev_len);
-	ft_strlcpy(joined + prev_len + 1, new, new_len);
-	return (joined);	
-}
+
