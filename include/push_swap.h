@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:28:22 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/25 18:05:28 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/26 10:28:25 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,21 @@ typedef struct t_pushswap
 	char	**flags;
 	char	**numbers;
 	int		numbers_size;
+	float	disorder;
+	char	*complexity;
 	int		valid;
 	int		bench;
+	int		pa_count;
+	int		pb_count;
+	int		sa_count;
+	int		sb_count;
+	int		ra_count;
+	int		rb_count;
+	int		rra_count;
+	int		rrb_count;
+	int		rr_count;
+	int		ss_count;
+	int		rrr_count;
 }	t_pushswap;
 
 typedef struct s_stack

@@ -6,11 +6,10 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 19:03:06 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/25 18:26:02 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/26 10:19:05 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 
 void	ft_rb(t_stack **b, int print)
 {
@@ -41,6 +40,8 @@ void	ft_pb(t_stack **a, t_stack **b, t_pushswap *pushswap)
 		write(1, "pb\n", 3);
 }
 
+
+
 void	ft_sb(t_stack **b, int print)
 {
 	t_stack	*tmp;
@@ -50,7 +51,6 @@ void	ft_sb(t_stack **b, int print)
 	tmp = *b;
 	*b = (*b)->next;
 	*b = tmp;
-
 	tmp->next = (*b)->next;
 	(*b)->next = tmp->next;
 	*b = (*b)->next;
