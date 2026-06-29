@@ -3,6 +3,10 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-green)   
 ![GitHub stars](https://img.shields.io/github/stars/dmsosa/REPO?style=social)
 
+# Contributions from each member
+
+Update for June 29th, as passing the s_pushswap struct to each function was too much work, it was removed and the struct s_stack is now added more members. All of this was necessary to count the total number of moves and store other data.
+
 # Description.
 
 //how to parse the args? or me the most straightforward and simple solution is

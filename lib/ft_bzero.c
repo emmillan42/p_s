@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_helper.c                                      :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/27 19:41:06 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/29 16:16:04 by durisosa         ###   ########.fr       */
+/*   Created: 2026/01/29 19:21:41 by durisosa          #+#    #+#             */
+/*   Updated: 2026/06/29 13:35:55 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "push_swap.h"
-
-int	main(void)
+void	ft_bzero(void *s, size_t n)
 {
-	t_stack	*stack;
-	char	*arr1;
+	unsigned char	*ptr;
 
-	arr1 = ft_strdup("23 45 6 7 11 9 1");
-	ft_parse_pushswap(ft_count_words(arr1), arr1);
-	stack = ft_parse_stack(ft_count_words(arr1), arr1);
-	ft_printstack(stack);
-	return (0);
+	ptr = (unsigned char *) s;
+	while (n > 0)
+	{
+		*ptr = 0;
+		ptr++;
+		n--;
+	}
 }

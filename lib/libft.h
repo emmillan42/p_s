@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 14:13:25 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/26 17:23:06 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:26:40 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_putendl(const char *str);
 
 char	*ft_itoa(int n);
 int		ft_atoi(const char *n);
+void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
@@ -70,9 +71,7 @@ char	**ft_split(const char *s, char c);
 /* FILE DESCRIPTORS -----------------------------------------------------  */
 
 void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int nbr, int fd);
 void	ft_putstr_fd(const char *s, int fd);
-void	ft_putendl_fd(const char *s, int fd);
 
 /* PRINTF ---------------------------------------------------------------  */
 

@@ -6,27 +6,11 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:21:41 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/26 11:40:48 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:47:23 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free_stack(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!stack || !*stack)
-		return ;
-	while (*stack)
-	{
-		tmp = *stack;
-		free(*stack);
-		*stack = (tmp)->next;
-	}
-	free(stack);
-}
-
 
 
 void	ft_stackindex(t_stack *stack)

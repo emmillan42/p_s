@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 18:04:59 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/27 19:54:22 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:42:03 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,35 @@ static void	ft_sort_big(t_stack **a, t_stack **b, t_pushswap *pushswap)
 void	ft_sort_simple(t_stack **a, t_stack **b, t_pushswap *pushswap)
 {
 	return ;
+}
+
+static void	ft_sort_simple(t_stack **a, t_stack **b, t_pushswap *pushswap)
+{
+	if (ft_stacksize(*a) > 3 && !ft_stacksorted(*a))
+		ft_pb(a, b, pushswap);
+	if (ft_stacksize(*a) > 3 && !ft_stacksorted(*a))
+		ft_pb(a, b, pushswap);
+	if (ft_stacksize(*a) > 3 && !ft_stacksorted(*a))
+		ft_pb(a, b, pushswap);
+}
+
+static void	ft_sort_complex(t_stack **a, t_stack **b, t_pushswap *pushswap)
+{
+}
+
+static void	ft_select_sort(t_stack **a, t_stack **b, t_pushswap *pushswap)
+{
+	float	disorder;
+
+	if (pushswap->numbers_size == 2)
+	{
+		return (ft_sa(a, pushswap));
+	}
+	else
+	{
+		b = malloc(sizeof(t_stack *));
+		if (!b)
+			return ;
+		ft_pa(a, b, pushswap);
+	}
 }

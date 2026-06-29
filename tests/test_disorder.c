@@ -1,12 +1,16 @@
-/******************************************************************************
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_disorder.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/27 19:41:06 by durisosa          #+#    #+#             */
+/*   Updated: 2026/06/29 16:15:58 by durisosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
 
-*******************************************************************************/
-
-#include <stdio.h>
 #include "push_swap.h"
 
 // float	ft_compute_disorder(int *numbers, int size)
