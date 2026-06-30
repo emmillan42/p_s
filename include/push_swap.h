@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:28:22 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/29 21:37:22 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/30 10:43:25 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void		ft_stackindex(t_stack *stack);
 int			ft_index(t_stack *stack, int target);
 int			ft_indexrel(t_stack *stack, int target);
 void		ft_print_stack(t_stack *stack);
-void		ft_free_stack(t_stack *stack);
+void		ft_free_stack(t_stack **stack);
 t_stack		*ft_stacklast(t_stack *stack);
 void		ft_stack_index(t_stack **stack);
 void		ft_stack_setflag(t_stack **a, char *str);

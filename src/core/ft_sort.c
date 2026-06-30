@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 18:04:59 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/29 21:21:40 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/06/30 10:44:25 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sort_simple(t_stack **a, t_stack **b)
 	return ;
 }
 
-static void	ft_sort_simple(t_stack **a, t_stack **b)
+static void	ft_sort_units(t_stack **a, t_stack **b)
 {
 	if (ft_stacksize(*a) > 3 && !ft_stacksorted(*a))
 		ft_pb(a, b);
