@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 12:58:55 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/02 11:17:09 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:32:47 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_valid_args(char **argv_split)
 			&& ft_strcmp(argv_split[i], "--bench") != 0)
 			strategy_count++;
 		if (strategy_count > 1)
-			return (0);
+			return (ft_printf("Argument is: %s \n", argv_split[3]), 0);
 		i++;
 	}
 	return (1);

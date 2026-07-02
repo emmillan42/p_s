@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:19:24 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/02 11:29:14 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:38:37 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,17 @@ void	ft_free_split(char **split)
 
 int	ft_isflag_ps(char *str)
 {
-	size_t	strlen;
-
 	if (!str)
 		return (0);
-	strlen = ft_strlen(str);
-	if (ft_strncmp("--simple", str, strlen))
+	if (ft_strcmp("--simple", str) == 0)
 		return (1);
-	else if (ft_strncmp("--medium", str, strlen))
+	else if (ft_strcmp("--medium", str) == 0)
 		return (1);
-	else if (ft_strncmp("--complex", str, strlen))
+	else if (ft_strcmp("--complex", str) == 0)
 		return (1);
-	else if (ft_strncmp("--adaptative", str, strlen))
+	else if (ft_strcmp("--adaptative", str) == 0)
 		return (1);
-	else if (ft_strncmp("--bench", str, strlen))
+	else if (ft_strcmp("--bench", str) == 0)
 		return (1);
 	else
 		return (0);

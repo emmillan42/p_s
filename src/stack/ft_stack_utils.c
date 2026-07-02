@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 17:48:38 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/30 20:47:42 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:17:01 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,20 @@
 
 void	ft_print_stack(t_stack *stack)
 {
-	int	count;
+	t_node	*node;
+	int		count;
 
+	if (!stack)
+		return ;
 	count = 0;
-	ft_printf("-------- begin of stack --------\n");
-	ft_printf("\n-------- end of stack --------");
+	node = stack->head;
+	ft_printf("\n-------- begin of stack --------\n");
+	while (node)
+	{
+		ft_printf("[%d]: node value: %d\n", node->index, node->value);
+		node = node->next;
+	}
+	ft_printf("\n-------- end of stack --------\n");
 }
 
 t_node	*ft_stacklast(t_stack *stack)
@@ -59,9 +68,11 @@ void	ft_stackadd_back(t_stack *stack, t_node *new)
 	{
 		stack->head = new;
 		stack->tail = new;
+		new->prev = NULL;
 	}
 	else
 	{
+		new->prev = stack->tail;
 		stack->tail->next = new;
 		stack->tail = new;
 	}

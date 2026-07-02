@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 18:04:59 by durisosa          #+#    #+#             */
-/*   Updated: 2026/06/30 12:24:52 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:39:36 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	ft_sort_three(t_stack *stack)
 
 void	ft_sort_strategy(t_stack **a, t_stack **b)
 {
+	ft_print_stack(*a);
 	return ;
 }

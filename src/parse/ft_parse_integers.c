@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 17:59:26 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/01 21:47:09 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:56:32 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 static int	ft_count_istrs(char **split);
 static int	ft_numbers_append(int *numbers, int size, int *index, char *str);
 static int	ft_contains_value(int *numbers, int size, int value);
+static void	ft_stack_numbers(t_stack *a, int *numbers, int size);
+
+static void	ft_stack_numbers(t_stack *a, int *numbers, int size)
+{
+	int	i;
+
+	i = 0;
+	if (!a)
+		return ;
+	while (i < size)
+	{
+		ft_stackadd_back(a, ft_node_new(numbers[i]));
+		i++;
+	}
+}
 
 static int	ft_numbers_append(int *numbers, int size, int *index, char *str)
 {
@@ -34,6 +49,8 @@ static int	ft_contains_value(int *numbers, int size, int value)
 {
 	int	i;
 
+	if (!numbers)
+		return (0);
 	i = 0;
 	while (i < size)
 	{
@@ -51,6 +68,8 @@ static int	ft_count_istrs(char **split)
 	int		count;
 
 	i = 0;
+	count = 0;
+	stop = 0;
 	while (split[i] && !stop)
 	{
 		if (!ft_valid_istr(split[i]))
@@ -82,8 +101,9 @@ int	ft_parse_integers(t_stack *a, char **split)
 	int		j;
 	int		stop;
 
+	numbers = NULL;
 	size = ft_count_istrs(split);
-	numbers = malloc(size * sizeof(int));
+	numbers = ft_calloc(size, sizeof(int));
 	if (!numbers)
 		return (0);
 	stop = 0;
@@ -93,8 +113,13 @@ int	ft_parse_integers(t_stack *a, char **split)
 	{
 		if (!ft_valid_istr(split[i]))
 			stop = 1;
-		if (!ft_numbers_append(numbers, size, &j, split[i]))
-			return (0);
+		else
+		{
+			if (!ft_numbers_append(numbers, size, &j, split[i]))
+				return (0);
+		}
 		i++;
 	}
+	ft_stack_numbers(a, numbers, size);
+	return (free(numbers), 1);
 }

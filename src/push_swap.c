@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:40:49 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/02 11:21:07 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:53:08 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	char		*argv_str;
 	char		**argv_split;
 
+	a = NULL;
+	b = NULL;
 	if (argc < 2)
 		return (1);
 	argv_str = ft_strjoin_args(argc, argv);
