@@ -1,47 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   metadata_index.c                                   :+:      :+:    :+:   */
+/*   metadata_cheapest.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 16:15:26 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/06 16:01:04 by durisosa         ###   ########.fr       */
+/*   Created: 2026/07/03 09:15:18 by emmmilla          #+#    #+#             */
+/*   Updated: 2026/07/06 16:16:09 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_node	*find_smallest_unindexed(t_stack *stack)
+static t_node	*find_lowest_cost(t_stack *stack)
+{
+
+}
+
+t_node	*find_cheapest(t_stack *stack)
 {
 	t_node	*node;
-	t_node	*smallest;
+	t_node	*best;
 
-	node = stack->head;
-	smallest = NULL;
+	if (!stack->head)
+		return (NULL);
+	best = stack->head;
+	node = best->next;
 	while (node)
 	{
-		if (node->index == -1)
-		{
-			if (!smallest || node->value < smallest->value)
-				smallest = node;
-		}
+		if (node->cost < best->cost)
+			best = node;
 		node = node->next;
 	}
-	return (smallest);
+	return (best);
 }
+/*
+PREVIOUS
+find_cheapest is returning void, it would be better
+to return the cheapest node directly.
 
-void	assign_indexes(t_stack *stack)
+void	find_cheapest(t_stack *stack)
 {
 	t_node	*node;
-	int		index;
+	t_node	*best;
 
-	index = 0;
-	node = find_smallest_unindexed(stack);
+	best = find_lowest_cost(stack);
+	node = stack->head;
 	while (node)
 	{
-		node->index = index;
-		index++;
-		node = find_smallest_unindexed(stack);
+		node->cheapest = (node == best);
+		node = node->next;
 	}
 }
+*/
+

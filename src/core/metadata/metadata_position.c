@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   metadata_index.c                                   :+:      :+:    :+:   */
+/*   metadata_position.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 16:15:26 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/06 16:01:04 by durisosa         ###   ########.fr       */
+/*   Created: 2026/07/02 18:14:30 by emmmilla          #+#    #+#             */
+/*   Updated: 2026/07/06 16:00:57 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_node	*find_smallest_unindexed(t_stack *stack)
+void	update_positions(t_stack *stack)
 {
 	t_node	*node;
-	t_node	*smallest;
+	int		position;
 
 	node = stack->head;
-	smallest = NULL;
+	position = 0;
 	while (node)
 	{
-		if (node->index == -1)
-		{
-			if (!smallest || node->value < smallest->value)
-				smallest = node;
-		}
+		node->position = position;
+		node->above_median = (position < stack->size / 2);
+		position++;
 		node = node->next;
-	}
-	return (smallest);
-}
-
-void	assign_indexes(t_stack *stack)
-{
-	t_node	*node;
-	int		index;
-
-	index = 0;
-	node = find_smallest_unindexed(stack);
-	while (node)
-	{
-		node->index = index;
-		index++;
-		node = find_smallest_unindexed(stack);
 	}
 }
