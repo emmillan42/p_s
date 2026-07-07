@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:29:35 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/02 12:53:36 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/07 14:34:58 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int	ft_parse_pushswap(t_stack **a, char **split)
 		return (ft_free_stack(*a), 0);
 	if (*a && (*a)->bench)
 		ft_bench_init(*a);
+	assign_indexes(*a);
 	return (1);
 }

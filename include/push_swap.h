@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:28:22 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/03 22:00:22 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/07 14:21:48 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,14 @@ void		ft_stack_index(t_stack **stack);
 int			ft_stacksize(t_stack *stack);
 int			ft_stacksorted(t_stack *stack);
 t_node		*ft_stacklast(t_stack *stack);
-int			ft_index(t_stack *stack, int target);
-int			ft_indexrel(t_stack *stack, int target);
 void		ft_stack_setstrategies(t_stack *a, char *s1, char *s2);
 void		ft_stack_setnames(t_stack *a, char *s1, char *s2);
 int			ft_stack_init(t_stack *stack);
 void		ft_stackadd_back(t_stack *stack, t_node *new);
 void		ft_stackadd_front(t_stack *stack, t_node *new);
+int			stack_find_index(t_stack *stack, t_node *node);
+int			stack_find_pos(t_stack *stack, t_node *node);
+t_node		*find_smallest(t_stack *stack);
 
 //BENCH_UTILS
 t_benchmark	*ft_bench_new(void);
@@ -114,19 +115,29 @@ void		ft_print_bench_fd(t_benchmark *bench, int fd);
 void		print_ops_group1(t_benchmark *bench, int fd);
 void		print_ops_group2(t_benchmark *bench, int fd);
 
-//SORT AND SORT UTILS
-void		ft_sort_simple(t_stack *a, t_stack *b);
+//SORT
 void		ft_sort_four(t_stack *a, t_stack *b);
 void		ft_sort_five(t_stack *a, t_stack *b);
 void		ft_sort_three(t_stack *stack);
 void		ft_sort_strategy(t_stack **a, t_stack **b);
+void		ft_sort_units(t_stack *a, t_stack *b);
+
+//SORT SIMPLE
+void		ft_sort_simple(t_stack *a, t_stack *b);
+void		ft_push_b_to_a(t_stack *a, t_stack *b);
+
+////SORT SIMPLE - METADATA
+t_node		*find_cheapest(t_stack *stack);
+void		update_positions(t_stack *stack);
+void		update_targets_a(t_stack *a, t_stack *b);
+void		update_targets_b(t_stack *a, t_stack *b);
+void		assign_indexes(t_stack *stack);
+void		update_costs(t_stack *a, t_stack *b);
+
+//SORT UTILS
 int			ft_max_index(t_stack *stack);
 int			ft_min_index(t_stack *stack);
-
-//METADATA
-
-t_node		*find_smallest_unindexed(t_stack *stack);
-void		assign_indexes(t_stack *stack);
+void		rotate_to_top(t_stack *stack, t_node *target, char name);
 
 //OPERATIONS
 void		ft_pa(t_stack *a, t_stack *b);

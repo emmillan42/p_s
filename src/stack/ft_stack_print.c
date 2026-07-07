@@ -1,48 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   metadata_index.c                                   :+:      :+:    :+:   */
+/*   ft_stack_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 16:15:26 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/07 14:36:54 by durisosa         ###   ########.fr       */
+/*   Created: 2026/01/29 19:21:41 by durisosa          #+#    #+#             */
+/*   Updated: 2026/07/07 13:33:56 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_node	*find_smallest_unindexed(t_stack *stack)
+void	ft_print_stack(t_stack *stack)
 {
 	t_node	*node;
-	t_node	*smallest;
+	int		count;
 
+	if (!stack)
+		return ;
+	count = 0;
 	node = stack->head;
-	smallest = NULL;
+	ft_printf("\n-------- begin of stack --------\n");
 	while (node)
 	{
-		if (node->index == -1)
-		{
-			if (!smallest || node->value < smallest->value)
-				smallest = node;
-		}
+		ft_printf("[%d]: node value: %d\n", node->index, node->value);
 		node = node->next;
 	}
-	return (smallest);
-}
-
-void	assign_indexes(t_stack *stack)
-{
-	t_node	*node;
-	int		index;
-
-	index = 0;
-	node = find_smallest_unindexed(stack);
-	while (node)
-	{
-		node->index = index;
-		index++;
-		node = find_smallest_unindexed(stack);
-	}
-	ft_print_stack(stack);
+	ft_printf("\n-------- end of stack --------\n");
 }

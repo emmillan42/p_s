@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 17:45:39 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/06 16:17:48 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/07 14:18:17 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_sort_simple(t_stack *a, t_stack *b)
 		ft_pb(a, b);
 	}
 	ft_sort_three(a);
+	ft_push_b_to_a(a, b);
 }
 
 /*
@@ -62,3 +63,23 @@ How to find cheapest movement?
 total movements = rotations of A to bring 'to_push' to top of A
 + rotations of B to bring 'to_push->target' to top of B.
 */
+
+/*
+Push back to A.
+Numbers in B are sorted from greatest to smalles (descending)
+
+
+*/
+void	ft_push_b_to_a(t_stack *a, t_stack *b)
+{
+	while (b->size > 0)
+		ft_pa(a, b);
+	update_positions(a);
+	rotate_to_top(a, find_smallest(a), 'a');
+}
+
+
+
+
+
+

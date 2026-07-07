@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 11:36:34 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/02 12:54:36 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/07 13:33:29 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,6 @@ t_stack	*ft_stack_new(void)
 	stack->strategy_arg = NULL;
 	stack->size = 0;
 	return (stack);
-}
-
-void	ft_stack_index(t_stack **stack)
-{
-	t_node	*node;
-	t_node	*tmp;
-	int		i;
-
-	if (!stack)
-		return ;
-	i = 0;
-	node = (*stack)->head;
-	while (node != NULL)
-	{
-		tmp = node;
-		i = 0;
-		while (tmp != NULL)
-		{
-			if (tmp->value < node->value)
-				i++;
-			tmp = tmp->next;
-		}
-		node->index = i;
-		node = node->next;
-	}
 }
 
 void	ft_free_stack(t_stack *stack)
