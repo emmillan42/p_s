@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:39:01 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/07 14:04:24 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/07 16:39:27 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	ft_sort_five(t_stack *a, t_stack *b)
 	min_index = ft_min_index(a);
 	while (a->head->index != min_index)
 		ft_ra(a);
+	ft_pb(a, b);
 	ft_sort_four(a, b);
+	ft_pa(a, b);
 }
 
 void	ft_sort_three(t_stack *stack)

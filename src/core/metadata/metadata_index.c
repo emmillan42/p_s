@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 16:15:26 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/07 14:36:54 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/07 14:52:13 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,4 @@ void	assign_indexes(t_stack *stack)
 		index++;
 		node = find_smallest_unindexed(stack);
 	}
-	ft_print_stack(stack);
 }

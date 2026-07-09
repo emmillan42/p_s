@@ -9,11 +9,12 @@ SRC_DIR = src
 TEST_DIR = tests
 OBJS_DIR = obj
 
-CFILES = push_swap.c \
+CFILES = main.c \
 	core/ft_sort.c \
 	core/ft_sort_utils.c \
 	core/ft_sort_units.c \
 	core/simple/ft_sort_simple.c \
+	core/medium/ft_sort_medium.c \
 	core/metadata/metadata_cheapest.c \
 	core/metadata/metadata_cost.c \
 	core/metadata/metadata_index.c \

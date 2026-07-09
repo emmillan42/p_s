@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 21:15:12 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/07 16:23:23 by durisosa         ###   ########.fr       */
+/*   Created: 2026/07/08 15:27:21 by durisosa          #+#    #+#             */
+/*   Updated: 2026/07/08 15:32:07 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	main(int argc, char **argv)
 {
-	int	i;
+	t_stack	*stack;
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
+	stack = NULL;
+	if (argc < 2)
+		return (0);
+
+	stack = ft_parse_pushswap(&stack, argv);
+	if (!read_input(0))
+		return (ft_free_stack(stack), 1);
+	return (0);
 }

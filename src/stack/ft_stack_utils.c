@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:21:41 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/07 14:35:38 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:47:15 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_stacksorted(t_stack *stack)
 	tmp = stack->head;
 	while (tmp && tmp->next)
 	{
-		printf("Stack index is %d", tmp->index);
 		if (tmp->index > tmp->next->index)
 			return (0);
 		tmp = tmp->next;
@@ -29,7 +28,7 @@ int	ft_stacksorted(t_stack *stack)
 	return (1);
 }
 
-int	stack_find_index(t_stack *stack, t_node *node)
+int	stack_find_index(t_stack *stack, int index)
 {
 	t_node	*tmp;
 	int		pos;
@@ -40,7 +39,7 @@ int	stack_find_index(t_stack *stack, t_node *node)
 	pos = 0;
 	while (tmp)
 	{
-		if (tmp->index == node->index)
+		if (tmp->index == index)
 			return (pos);
 		tmp = tmp->next;
 		pos++;
@@ -73,3 +72,31 @@ t_node	*find_smallest(t_stack *stack)
 	return (smallest);
 }
 
+void	stack_index_to_top(t_stack *stack, int index, char stack_name)
+{
+	int	pos;
+
+	pos = stack_find_index(stack, index);
+	if (pos <= stack->size / 2)
+	{
+		while (pos > 0)
+		{
+			if (stack_name == 'a')
+				ft_ra(stack);
+			else
+				ft_rb(stack);
+			pos--;
+		}
+	}
+	else
+	{
+		while (pos < stack->size)
+		{
+			if (stack_name == 'a')
+				ft_rra(stack);
+			else
+				ft_rrb(stack);
+			pos++;
+		}
+	}
+}

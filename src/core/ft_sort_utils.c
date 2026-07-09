@@ -6,11 +6,21 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 19:11:14 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/07 14:17:25 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:54:00 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	int_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (i * i <= n)
+		i++;
+	return (i - 1);
+}
 
 /*
 finds the maximum node->index within the given stack.
@@ -47,7 +57,7 @@ int	ft_min_index(t_stack *stack)
 	min = head->index;
 	while (head)
 	{
-		if (head->index > min)
+		if (head->index < min)
 			min = head->index;
 		head = head->next;
 	}

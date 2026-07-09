@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 23:19:14 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/06 16:13:02 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/09 14:48:31 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ static int	rotation_cost(t_stack *stack, t_node *node)
 	return (stack->size - node->position);
 }
 
+/* 
+Cost of current node is:
+max_of(pos_a, pos_b) IF current.above_median == target.above_median,
+for this to work I need to update targets before the positions.
+
+else if current->above_median != current->target->above_median
+return their sum. 
+
+*/
 void	update_costs(t_stack *a, t_stack *b)
 {
 	t_node	*node;
@@ -26,9 +35,15 @@ void	update_costs(t_stack *a, t_stack *b)
 	node = a->head;
 	while (node)
 	{
-		node->cost = rotation_cost(a, node);
-		if (node->target)
-			node->cost += rotation_cost(b, node->target);
+		if (node->above_median == node->target->above_median)
+		{
+			if (node->position > node->target->position)
+				node->cost = node->position;
+			else
+				node->cost = node->target->position;
+		}
+		else
+			node->cost = node->position + node->target->position;
 		node = node->next;
 	}
 }
