@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:28:22 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/15 15:33:59 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/15 20:48:46 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef struct s_stack
 	int			bench;
 	int			*ops;
 }	t_stack;
-
 
 //ERRORS
 int			ft_return_error(int print);
@@ -132,11 +131,8 @@ void		ft_sort_complex(t_stack *a, t_stack *b);
 /* ALGORITHM                                                                  */
 /* ************************************************************************** */
 
-/* algorithm_small.c */
 void		sort_two(t_stack *a);
 void		sort_three(t_stack *a);
-
-/* algorithm_small_utils.c */
 t_node		*find_min(t_stack *stack);
 void		sort_four_five(t_stack *a, t_stack *b);
 
@@ -149,13 +145,12 @@ void		rotate_both(t_stack *a, t_stack *b, t_node *top_a,
 				t_node *top_b);
 void		reverse_rotate_both(t_stack *a, t_stack *b, t_node *top_a,
 				t_node *top_b);
-void		ft_sort_simple(t_stack *a, t_stack *b);
+void	rotate_pos_top(t_stack *stack, int pos, char name);
 
 /* ************************************************************************** */
 /* METADATA                                                                   */
 /* ************************************************************************** */
 
-/* metadata_index.c */
 void		assign_indexes(t_stack *stack);
 void		update_positions(t_stack *stack);
 void		update_targets_a(t_stack *a, t_stack *b);
@@ -167,13 +162,11 @@ t_node		*find_lowest_cost(t_stack *stack);
 void		update_metadata_a_to_b(t_stack *a, t_stack *b);
 void		update_metadata_b_to_a(t_stack *a, t_stack *b);
 
-
-
-
-
 //SORT UTILS
 int			ft_max_index(t_stack *stack);
 int			ft_min_index(t_stack *stack);
+t_node		*find_max(t_stack *stack);
+int			find_max_pos(t_stack *stack);
 int			int_sqrt(int n);
 
 //OPERATIONS

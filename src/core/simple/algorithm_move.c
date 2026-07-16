@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:00:46 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 15:33:30 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/15 20:37:06 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	move_b_to_a(t_stack *a, t_stack *b)
 		rotate_both(a, b, target, cheapest);
 	else if (!cheapest->above_median && !target->above_median)
 		reverse_rotate_both(a, b, target, cheapest);
-	bring_to_top(a, target, 'A');
-	bring_to_top(b, cheapest, 'B');
+	bring_to_top(a, target, 'a');
+	bring_to_top(b, cheapest, 'b');
 	ft_pa(a, b);
 }
 
@@ -49,7 +49,7 @@ void	move_a_to_b(t_stack *a, t_stack *b)
 		rotate_both(a, b, cheapest, target);
 	else if (!cheapest->above_median && !target->above_median)
 		reverse_rotate_both(a, b, cheapest, target);
-	bring_to_top(a, cheapest, 'A');
-	bring_to_top(b, target, 'B');
+	bring_to_top(a, cheapest, 'a');
+	bring_to_top(b, target, 'b');
 	ft_pb(a, b);
 }

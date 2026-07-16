@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 09:37:10 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 15:39:51 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/15 20:37:23 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	final_rotation(t_stack *a)
 
 	min = find_min(a);
 	if (min)
-		bring_to_top(a, min, 'A');
+		bring_to_top(a, min, 'a');
 }
 
 void	ft_sort_simple(t_stack *a, t_stack *b)

@@ -6,7 +6,7 @@
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 20:46:08 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 15:32:42 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/15 20:46:40 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,32 @@ t_node	*find_max(t_stack *stack)
 		node = node->next;
 	}
 	return (max);
+}
+
+int	find_max_pos(t_stack *stack)
+{
+	t_node	*node;
+	int		max_index;
+	int		max_pos;
+	int		pos;
+
+	if (!stack || stack->size == 0)
+		return (-1);
+	node = stack->head;
+	max_index = node->index;
+	max_pos = 0;
+	pos = 0;
+	while (node)
+	{
+		if (node->index > max_index)
+		{
+			max_index = node->index;
+			max_pos = pos;
+		}
+		node = node->next;
+		pos++;
+	}
+	return (max_pos);
 }
 
 t_node	*find_min(t_stack *stack)
