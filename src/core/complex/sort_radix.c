@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_k_sort.c                                        :+:      :+:    :+:   */
+/*   sort_radix.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: durisosa <durisosa@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 15:40:14 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/15 15:40:49 by durisosa         ###   ########.fr       */
+/*   Updated: 2026/07/17 14:55:26 by durisosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_complex(t_stack *a, t_stack *b)
+/**
+ * RADIX
+ */
+void	sort_radix(t_stack *a, t_stack *b)
 {
-	
+
 }
