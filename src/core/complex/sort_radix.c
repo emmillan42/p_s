@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 15:40:14 by durisosa          #+#    #+#             */
-/*   Updated: 2026/07/18 13:07:33 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/18 13:55:37 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	process_bit(t_stack *a, t_stack *b, int bit)
 	size = a->size;
 	while (size > 0)
 	{
-		if (((a->top->index >> bit) & 1) == 0)
+		if (((a->head->index >> bit) & 1) == 0)
 			pb(a, b);
 		else
 			ra(a);
@@ -64,4 +64,3 @@ void	sort_radix(t_stack *a, t_stack *b)
 		bit++;
 	}
 }
-
